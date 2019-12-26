@@ -56,6 +56,7 @@ namespace NuGet.VisualStudio
 
         void IWizard.RunStarted(object automationObject, Dictionary<string, string> replacementsDictionary, WizardRunKind runKind, object[] customParams)
         {
+            ThreadHelper.ThrowIfNotOnUIThread();
             Initialize(automationObject);
 
             Wizard.RunStarted(automationObject, replacementsDictionary, runKind, customParams);
